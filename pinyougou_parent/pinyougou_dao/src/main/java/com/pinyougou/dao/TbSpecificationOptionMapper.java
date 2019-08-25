@@ -3,6 +3,8 @@ package com.pinyougou.dao;
 import com.pinyougou.pojo.TbSpecificationOption;
 import com.pinyougou.pojo.TbSpecificationOptionExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TbSpecificationOptionMapper {
@@ -27,4 +29,6 @@ public interface TbSpecificationOptionMapper {
     int updateByPrimaryKeySelective(TbSpecificationOption record);
 
     int updateByPrimaryKey(TbSpecificationOption record);
+
+
 }
