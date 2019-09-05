@@ -3,6 +3,9 @@ import java.util.List;
 import com.pinyougou.pojo.TbGoods;
 
 import com.pinyougou.entity.PageResult;
+import com.pinyougou.pojogroup.Goods;
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 /**
  * 服务层接口
  * @author Administrator
@@ -27,13 +30,13 @@ public interface GoodsService {
 	/**
 	 * 增加
 	*/
-	public void add(TbGoods goods);
+	public void add(Goods goods);
 	
 	
 	/**
 	 * 修改
 	 */
-	public void update(TbGoods goods);
+	public void update(Goods goods);
 	
 
 	/**
@@ -41,7 +44,7 @@ public interface GoodsService {
 	 * @param id
 	 * @return
 	 */
-	public TbGoods findOne(Long id);
+	public Goods findOne(Long id);
 	
 	
 	/**
@@ -57,5 +60,20 @@ public interface GoodsService {
 	 * @return
 	 */
 	public PageResult findPage(TbGoods goods, int pageNum, int pageSize);
+
+
+	/**
+	 * 批量修改状态--商品审核
+	 * @param ids
+	 * @param status
+	 */
+	public void updateStatus(Long []ids,String status);
+
+	/**
+	 * 是否上架
+	 * @param ids
+	 * @param status
+	 */
+	public void isMarketable(Long []ids,String status);
 	
 }

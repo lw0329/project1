@@ -76,5 +76,21 @@ app.controller('sellerController' ,function($scope,$controller   ,sellerService)
 			}			
 		);
 	}
+	
+	//修改状态码
+	$scope.updateStatus=function (sellerId,status) {
+		sellerService.updateStatus(sellerId,status).success(
+			function (response) {
+
+				if (response.success){
+					$scope.reloadList();
+				}else{
+					alert(response.message);
+				}
+
+
+			}
+		);
+	}
     
 });	

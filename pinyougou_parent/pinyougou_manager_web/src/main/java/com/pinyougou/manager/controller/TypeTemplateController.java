@@ -1,6 +1,8 @@
 package com.pinyougou.manager.controller;
 import java.util.List;
+import java.util.Map;
 
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -101,7 +103,7 @@ public class TypeTemplateController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param typeTemplate
 	 * @param page
 	 * @param rows
 	 * @return
@@ -109,6 +111,12 @@ public class TypeTemplateController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbTypeTemplate typeTemplate, int page, int rows  ){
 		return typeTemplateService.findPage(typeTemplate, page, rows);		
+	}
+
+
+	@RequestMapping("/selectTypeTempList")
+	public List<Map> selectTypeTempList(){
+		return typeTemplateService.selectTypeTempList();
 	}
 	
 }

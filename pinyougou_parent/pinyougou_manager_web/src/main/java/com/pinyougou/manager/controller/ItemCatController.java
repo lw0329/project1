@@ -50,6 +50,7 @@ public class ItemCatController {
 	public Result add(@RequestBody TbItemCat itemCat){
 		try {
 			itemCatService.add(itemCat);
+			System.out.println(itemCat);
 			return new Result(true, "增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -99,9 +100,9 @@ public class ItemCatController {
 		}
 	}
 	
-		/**
+	 /**
 	 * 查询+分页
-	 * @param brand
+	 * @param itemCat
 	 * @param page
 	 * @param rows
 	 * @return
@@ -110,5 +111,18 @@ public class ItemCatController {
 	public PageResult search(@RequestBody TbItemCat itemCat, int page, int rows  ){
 		return itemCatService.findPage(itemCat, page, rows);		
 	}
+
+
+	/**
+	 * 根据parentId进行列表查询
+	 * @param parentId
+	 * @return
+	 */
+	@RequestMapping("/findByParentId")
+	public List<TbItemCat> findByParentId(Long parentId){
+
+		return itemCatService.findByParentId(parentId);
+	}
+
 	
 }

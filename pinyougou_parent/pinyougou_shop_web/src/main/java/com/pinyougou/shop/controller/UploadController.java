@@ -26,7 +26,7 @@ public class UploadController {
 
         try {
             //2.创建一个FastDFS客户端
-            FastDFSClient fastDFSClient = new FastDFSClient("classpath:config/fdfs_client.conf");
+            FastDFSClient fastDFSClient = new FastDFSClient("classpath:/config/fdfs_client.conf");
 
             //3.执行上传处理
             String path = fastDFSClient.uploadFile(file.getBytes(), extraName);
